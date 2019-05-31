@@ -35,7 +35,7 @@ private TabLayout tabLayout;
          tabLayout.setupWithViewPager(viewPager,false);
 
 
-
+       //text
 
     }
     private void addTabs(ViewPager viewPager) {
