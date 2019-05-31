@@ -1,34 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-   android:layout_width="match_parent"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-  <com.google.android.material.appbar.AppBarLayout
-      android:id="@+id/appBarLayout"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content">
-      <include android:id="@+id/toolBar"
-          layout="@layout/tool_bar"/>
 
-      <com.google.android.material.tabs.TabLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:id="@+id/tabLayout">
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
 
 
-      </com.google.android.material.tabs.TabLayout>
-  </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.viewpager.widget.ViewPager
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/view_pager"
-        android:layout_below="@+id/appBarLayout"
-        android:layout_alignEnd="@+id/appBarLayout"
-        android:layout_alignBottom="@+id/appBarLayout"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav">
 
-    </androidx.viewpager.widget.ViewPager>
 
-</RelativeLayout>
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+</androidx.constraintlayout.widget.ConstraintLayout>

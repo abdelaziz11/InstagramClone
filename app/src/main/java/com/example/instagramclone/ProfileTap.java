@@ -38,22 +38,26 @@ public class ProfileTap extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_profile_tap, container, false);
-        am = getActivity().getAssets();
-        LinearLayout layout = (LinearLayout)view.findViewById(R.id.forAnim);
-        anim = (AnimationDrawable) layout.getBackground();
-        anim.setEnterFadeDuration(100);
-        anim.setExitFadeDuration(1000);
 
         nameEdt=(EditText)view.findViewById(R.id.edtProfileName);
         bioEdt=(EditText)view.findViewById(R.id.edtProfileBio);
         professionEdt=(EditText)view.findViewById(R.id.edtProfileProfession);
         hobbiesEdt=(EditText)view.findViewById(R.id.edtProfileHobbies);
         favoriteSportsEdt=(EditText)view.findViewById(R.id.edtProfileFavoriteSports);
+         final ParseUser user=ParseUser.getCurrentUser();
+
+         nameEdt.setText(user.get("profileName")+"");
+        bioEdt.setText(user.get("profileBio")+"");
+        professionEdt.setText(user.get("profileProfession")+"");
+        hobbiesEdt.setText(user.get("profileHobbies")+"");
+        favoriteSportsEdt.setText(user.get("ProfilefavoriteSports")+"");
+
+
+
         updateInfoBtn=(Button)view.findViewById(R.id.btnUpdateInfo);
         updateInfoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ParseUser user=ParseUser.getCurrentUser();
                 user.put("profileName",nameEdt.getText().toString());
                 user.put("profileBio",bioEdt.getText().toString());
                 user.put("profileProfession",professionEdt.getText().toString());

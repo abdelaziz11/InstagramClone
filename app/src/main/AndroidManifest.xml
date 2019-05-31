@@ -24,8 +24,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SignUpAcitvity"></activity>
-        <activity android:name=".WelcomeActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".WelcomeActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
